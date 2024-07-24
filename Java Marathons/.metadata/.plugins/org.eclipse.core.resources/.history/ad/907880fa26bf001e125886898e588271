@@ -1,0 +1,75 @@
+package rocket.station;
+
+import rocket.station.exceptions.BoostException;
+import rocket.station.exceptions.LaunchException;
+
+public class RocketTest {
+
+	public static void main(String[] args) {
+		System.out.println("Start main...");
+		System.out.println("-----------------------");
+		
+		RocketLauncher rocketLaunch = null;
+		try {
+			rocketLaunch = new RocketLauncher();
+		}
+		catch(LaunchException e) {
+			System.out.println("Some problem 1 : "+ e.getMessage());
+		}
+		
+		if(rocketLaunch != null) {
+			try {
+				rocketLaunch.launch();
+			}
+			catch(BoostException e) {
+				System.out.println("Some problem 2 : "+ e.getMessage());
+			}
+		}
+		
+		System.out.println("-----------------------");
+		System.out.println("End main...");
+	}
+}
+
+class RocketLauncher{
+	boolean boosterStatus;
+	boolean launchStatus;
+	
+	RocketLauncher() throws LaunchException{
+		checkLauncher();
+		if(launchStatus == true) {
+			throw new LaunchException("Launcher is not working !!");
+		}
+		else {
+			System.out.println("Launcher is working fine !");
+		}
+	}
+	
+	public void launch() {
+		for(int i = 1; i <= 20; i++) {
+			System.out.println(i+"km reached...");
+			checkBooster();
+			if(boosterStatus == true) {
+				throw new BoostException("Booster failed !!");
+			}
+		}
+		System.out.println("Rocket launched successfully !!");
+	}
+	
+	private void checkBooster() {
+		double random = Math.random() % 10;
+		System.out.println("random for booster : "+ random);
+		if(random > 0.90) {
+			boosterStatus = true;
+		}
+	}
+	
+	private void checkLauncher() {
+		System.out.println("Checking launcher...");
+		double random = Math.random() % 10;
+		System.out.println("random for launch : "+ random);
+		if(random > 0.30) {
+			launchStatus = true;
+		}
+	}
+}

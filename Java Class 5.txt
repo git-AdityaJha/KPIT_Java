@@ -1,0 +1,405 @@
+JAVA 5 CLASS | 21/1/24
+-----------------------
+
+Thought of the day : 
+You cannot decide your future
+But you can decide your habits
+And your habits will decide your future.
+
+
+
+----------------------------SIR'S NOTES----------------------------
+
+
+
+You cannot decide your future.
+	But you can decide your habits.
+	And your habits will decide your future.
+
+
+
+
+	Exception 
+	
+
+	try
+	{
+		open a file1,2,3
+		code1
+		code2
+		code3
+	}
+	catch(....) { }
+	catch(....) {
+		System.exit(12);
+	 }
+	catch(....) { }
+	catch(....) { }
+	catch(....) { }
+	catch(....) { }
+	finally {
+		bound to run regardless of the exception
+		close the file 1,2,3
+	}
+
+
+	try
+	{
+	}
+	finally {
+	}
+
+
+
+
+
+
+
+
+	try
+	{
+	}
+	catch() { }
+
+	try
+	{
+	}
+	finally { }
+
+	try {
+	}
+	finally { }
+	catch() {}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	throw
+	throws
+
+
+
+
+
+
+
+
+
+
+
+//unchecked
+class SpeedLimitExceededException extends RuntimeException
+{
+}
+//checked
+class PUCException extends Exception 
+{
+}
+
+
+	class Car
+	{
+		void longDrive() throws PUCException,.,.,.,
+		{
+			for(...300){
+			 ...if..
+			  throw new SpeedLimitExeededException();
+			..
+			..if..
+			  throw new PUCException();
+			}
+		}
+	}
+
+
+
+
+	Components Orthogonal Space
+
+
+			X - Content
+			|data type
+			|   ButterMilk
+			|   FriedRice
+			|   Paneer Chilly
+			|   Noodles
+			|   Pickle
+		--------------------
+		|		|
+		Y		Z
+		|		|
+	Container		Algorithm
+	|	|		| drink();
+	|	+------[ I ]----+ eat();
+     Glass		 |
+     Plate	       Iterator
+     Bowl		|
+			Straw
+			Spoon
+			Fork
+			ChopStiks
+
+
+			     Iterable <<i>>
+				|
+			     Collection <<i>>
+				|
+		---------------------------------
+		|				|
+		List <<i>>			Set <<i>>
+		|duplicate			|unique
+	--------------------		------------------
+	|		|		|		|
+  ArrayList	  LinkedList	   TreeSet	   HashSet <-C
+ +--+		|   |->|  |->|  |
+ |  |0		| n1|<-|n2|<-|n3|
+ +--+		 doubley linked
+ |  |1
+ +--+
+ |  |2
+ +--+
+ |  |3
+   |
+growable
+
+				50
+				|
+			-------------------
+			|		  |
+			30		  70
+			|		  |
+		-----------------	----------
+		|		|	|	|
+		10		40	60     80
+		|
+	    ---------
+	    |
+	    5
+
+
+		Comparable <---->  Comparator
+
+			Map <<i>>
+			|<Key,Value>
+		------------------
+		|		|
+		TreeMap		HashMap
+
+
+Sky   |V
+Air   |A
+Fire  |M
+Water |S
+Earth |M
+
+
+GET940
+	TreeMapTest.java
+
+
+
+JDBC
+
+	Java Database Connectivity
+
+
+
+	Java	<-----------------> open database
+	
+		DriverManager
+		| registerDriver()
+		| getConnection()
+	--------+
+	|
+	Driver ------------------> Connection
+					|
+			-----------------------------
+			|	|		 |
+		  Statement  PreparedStatement CallableStatement
+		
+
+	1. Know ur database [ mysql ]
+	2. know the username and password of it
+	3. know the drivername for it to connect
+	4. DriverManager.registerDriver()
+	5. Connction conn =DriverManager.getConnection()
+	6. Statement st = conn.createStatement();
+	7. ResultSet rs = st.executeQuery();
+	8. process the rs
+	9. close the rs, st,conn
+
+
+
+DriverClass
+	com.mysql.jdbc.Driver
+
+DSN
+	jdbc:mysql://localhost:3306/mysql","root","root"
+
+
+
+	1. right click project
+	2. properties
+	3. java build path
+	4. Libraries TAB
+	5. click classpath
+	6. Add External Jars <--button
+	7. browse the mysql-connector folder [ downloaded ]
+	8. select the jar file - mysql-connector-j-0.8.0.32.jar
+
+
+----------------------SIR'S NOTES ENDS HERE--------------------------
+
+
+
+-----------------------
+
+For System.exit(12); // Only here the finally will not work because system got exited.
+		     // Everywhere else the finally will always run.
+
+-----------------------
+
+Read the documentation on java 1.8 docs, link here : 
+https://docs.oracle.com/javase/8/docs/api/
+
+public class Exception
+extends Throwable
+The class Exception and its subclasses are a form of Throwable
+that indicates conditions that a reasonable application might want to catch.
+The class Exception and any subclasses that are not also subclasses of 
+RuntimeException are checked exceptions. Checked exceptions need to be 
+declared in a method or constructor's throws clause if they can be thrown 
+by the execution of the method or constructor and propagate outside the method or constructor boundary.
+
+-------------------------
+Runtime Exception : 
+
+RuntimeException and its subclasses are unchecked exceptions. 
+Unchecked exceptions do not need to be declared in a method or constructor's throws clause
+-------------------------
+
+* throws should have after the method and
+* throws should have checked exceptions
+
+* Functions have throws and throw keyword and where the function is called there we use try and catch.
+
+-------------------------
+
+* Iterator types : turtle and kangaroo
+* Generic is a compile time
+* Generic only works with objects and not with primitives like int.
+
+
+
+
+Self practice for exception handling on these topics : 
+ATM
+ROCKET
+
+
+* codility.com - to develop logic
+* can the child have two parents ?
+
+ASSINGMENT FOR TODAY : 
+* Rocket example - class rocket with the lauch function, with two exceptions - ignition, gravity. 
+
+---------------
+
+GET940 - at sir's github - Example TreeMapTest.java
+
+
+JDBC
+	Java Database Coo
+
+
+STEPS :
+
+Driver class: The driver class for the mysql database is com.mysql.jdbc.Driver.
+Connection URL: The connection URL for the mysql database is 
+jdbc:mysql://localhost:3306/sonoo where jdbc is the API, mysql is the database,
+ localhost is the server name on which mysql is running, we may also use IP address,
+ 3306 is the port number and sonoo is the database name. We may use any database, 
+in such case, we need to replace the sonoo with our database name.
+Username: The default username for the mysql database is root.
+Password: It is the password given by the user at the time of installing the mysql database.
+ In this example, we are going to use root as the password.
+
+----------------------
+auto import : ctrl + shift + m
+---------------------
+
+**************** HSQDB CODE *******************
+ 
+import java.sql.*;
+
+public class SelectTest {
+	public static void main(String[] args) {
+
+		//1. load the driver (ctrl+shift+M)
+		
+		try {
+//			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+			
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+			System.out.println("Drivare is registerd...");
+			
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb","SA","");
+			System.out.println("Connected to the db");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------
+MARATHON->
+1. exception
+	Rocket - launch - IgnitionException, BoosterException
+2. collection
+	ChemicalElement {id, atomic weight, atomic name, atomic number, chemical formula}
+		periodicTable as <-- TreeSet
+	Comparable 
+3. jdbc
+4. jpa
+5. spring
+
+
+
+
+
+
+
+

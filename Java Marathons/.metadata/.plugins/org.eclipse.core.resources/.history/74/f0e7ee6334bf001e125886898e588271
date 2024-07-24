@@ -1,0 +1,22 @@
+package company.jdbc;
+
+import java.sql.*;
+import java.util.*;
+
+public class InsertTest {
+
+	public static void main(String[] args) {
+		Connection conn;
+
+		try {
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+			System.out.println("Driver registered...");
+			
+			conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "SA", "");
+			System.out.println("Connected to database...");
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

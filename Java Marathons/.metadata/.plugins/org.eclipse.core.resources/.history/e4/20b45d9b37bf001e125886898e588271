@@ -1,0 +1,8 @@
+package company.jdbc;
+
+public class SelectTest {
+
+	public static void main(String[] args) {
+		
+	}
+}

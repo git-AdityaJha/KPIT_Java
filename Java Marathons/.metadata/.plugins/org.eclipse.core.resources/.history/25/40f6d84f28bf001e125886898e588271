@@ -1,0 +1,45 @@
+package rocket.station;
+
+import rocket.station.exceptions.BoostException;
+import rocket.station.exceptions.LaunchException;
+
+class RocketLauncher{
+	boolean boosterStatus;
+	boolean launchStatus;
+	
+	RocketLauncher() throws LaunchException{
+		checkLauncher();
+		if(launchStatus == true) {
+			throw new LaunchException("Launcher is not working !!");
+		}
+		else {
+			System.out.println("Launcher is working fine !");
+		}
+	}
+	
+	public void launch() {
+		for(int i = 1; i <= 20; i++) {
+			System.out.println(i+"km reached...");
+			checkBooster();
+			if(boosterStatus == true) {
+				throw new BoostException("Booster failed !!");
+			}
+		}
+		System.out.println("Rocket launched successfully !!");
+	}
+	
+	private void checkBooster() {
+		double random = Math.random() % 10;
+		if(random > 0.99) {
+			boosterStatus = true;
+		}
+	}
+	
+	private void checkLauncher() {
+		System.out.println("Checking launcher...");
+		double random = Math.random() % 10;
+		if(random > 0.30) {
+			launchStatus = true;
+		}
+	}
+}

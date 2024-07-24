@@ -1,0 +1,36 @@
+package rocket.station;
+
+import rocket.station.exceptions.LaunchException;
+
+public class RocketTest {
+
+	public static void main(String[] args) {
+		
+	}
+}
+
+class RocketLauncher{
+	boolean boosterStatus;
+	boolean launchStatus;
+	
+	RocketLauncher() throws LaunchException{
+		System.out.println("Checking");
+	}
+	
+	private void checkBooster() {
+		System.out.println("Checking booster...");
+		double random = Math.random() % 10;
+		System.out.println("random for booster : "+ random);
+		if(random > 0.90) {
+			boosterStatus = true;
+		}
+	}
+	
+	private void checkLauncher() {
+		double random = Math.random() % 10;
+		System.out.println("random for launch : "+ random);
+		if(random > 0.30) {
+			launchStatus = true;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+
+java -jar hsqldb.jar
+
+------------------------------------------------------------------------
+
+[10:27 PM] Aditya Ranjan Pradhan
+JDBC
+
+======
+ 
+right click anywhere 
+
+-> click on new
+
+-> java project
+
+-> create a file
+
+-> right click on the file: properties--> java build path --> add external jars-->(download hsql-->lib-->hdqldb.jar)
+ 
+--------------------------------------------------------
+ 
+open the downloads -> hsqldb --> lib--> cmd (the belowe command)
+ 
+TO START THE HSQLDB SERVER -> 
+
+	java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+ 
+and star the another cmd in it.
+ 
+	TO START THE HSQLDB INTERFACE -> java -jar hsqldb.jar
+ 
+DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb","SA","");
+
+DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());

@@ -1,0 +1,196 @@
+JAVA CLASS 6 | 22/1/24
+----------------------
+
+-------------------SIR'S NOTES-----------------------------
+
+dept			emp
+	dno  dname  loc		empno  ename  job
+	10   IT	    NY		101    Jack   Salesman
+
+			customer
+			custid   custname   address
+			1012	 Vollyrite  Mumbai
+
+POJOs
+	Department d = new Department();
+	Employee e = new Employee();
+	Customer c = new Customer();
+
+	Statement st = conn.craeteStatement();
+	ResultSet rs = st.executeQuery("select * from dept");
+	while(rs.next){
+		d.setDeptNo(rs.getInt(1));
+		sop("dno : "+d.getDeptNo));
+
+
+DAO
+----
+
+		Data Access Object
+
+
+
+		- to hide teh low level database logic
+
+	1.POJO	2.Poji	3. PojiImpl
+
+
+TABLE	emp11
+	|
+	EMPNO ENAME SAL
+	101   Prakhar 50000
+
+	Address
+	place	area	city	state	pin	eno
+	WA	Wakad	Pune	Mah	411,,	101
+	EA	Pimpri	Pune	Mah	422	101
+	
+POJO - WHICH IS MAPPED WITH THE STRUCTURE OF YOUR TABLE
+
+	POJO = BEAN = COMPONENT = CLASS
+
+class Employee
+{
+	int employeeNumber ; // mapped with EMPNO
+	String employeeName; // mapped with ENAME
+	float employeeSalary; // mapped with SAL
+	ArrayList<Address> addrList = new ArrayList<Address>();
+
+	//mandatory
+	public Employee() {
+	}
+	getters/setters
+}
+
+class Address
+{
+	String place;
+	String   area;
+	String    city;
+	String    state;
+	long   pin;
+	int     eno
+
+}
+
+-----------------------SIR'S NOTES ENDS HERE--------------------------
+
+
+-----------------------------SELF NOTES------------------------------
+
+prepareStatement - for inserting data into table
+result rs - for fetching data from table
+
+--------
+QUERIES : 
+--------
+to select - select * from mydept
+to select from where - "select * from " + "mydept where deptname="+"'"+deptName+"'"
+to insert - insert into mydept values (?,?,?)
+to update - update mydept set loc=?, deptname=? where deptno=?;
+to delete - DELETE FROM MYDEPT WHERE DEPTNO=?
+
+
+JPA and SPRING tech : 
+--------------------
+DAO (Data access object) - Down desgin pattern - 23 design patterns in java
+	- to hide the low level database logic
+	1.POJO 2. Poji (plain old java interface) 3. PojiImpl (Implement)
+
+-Iterator, DAO, Singleton
+
+- Website to learn design pattern : 
+
+
+ER relationship : 
+----------------
+one to many - one employee can work on many projects
+many to many - many emp can work on many projects
+one to one - one emp can have one aadhaar card.
+
+MARKER INTERFACE : It is an Interface that does not have methods.
+
+
+TreeSetTest.java --- In sir's github profile
+Chemical number and all.
+
+------------------
+JPA
+---------------------
+
+	Persistence
+
+Hibernate framework = orm framework
+|is
+CDMA - vendor lock in
+
+Steps- 
+---------*---------*----------
+Maven Project
+
+			JpaProject
+			    |
+		---------------------------------
+		|				|
+		src				pom.xml
+		|				|
+	-------------------		dependencies declarations
+	|		  |
+	main		test
+	|		   |
+
+
+
+1. pojo
+	@Entity
+	@Table(name="mydept")
+	class Department
+	{
+		@Id
+		int departmentNumber;
+		String deptName;
+		String location;
+			ctor/get/set
+	}
+	
+2. EntityManagerfactory
+	|
+	EntityManager
+		|  Department d = new Department(); d.setters
+		persist(); - insert query is generated.
+
+3. META-INF/persistence.xml
+		|
+		driver name, url, username, password
+	per			
+
+
+
+----------------------------------------------------------------------------------
+ASSIGNMENT : 
+* Same process to be repeated for the employee table.
+	- empNo, empName, empJob, empHireDate, empSalary, empIncentives.
+	- class - LocalDate for hireDate.
+
+
+
+
+B.50001547.1
+Autonomous Driving/Revenue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,159 @@
+JAVA CLASS 8 | 24|1|24
+----------------------
+
+- FLax oil - to remove fatigue.
+
+- Whatever does not depend upon business logic should be automated.
+
+- 80% mindset - 20% skills
+
+
+THOUGHT OF THE DAY : 
+--------------------
+ 	Think of the moon you will land on mountain
+ 	IT is good to feel good to have good habits. 
+	And is bad to feel bad to remove bad habits.
+
+BOOK - Think and grow rich.
+	Author - Napolean Hill.
+
+--------------SELF NOTES---------------------
+
+Spring 
+	is a framework - CDI - context dependency injection.
+	- do not get involved in creating the objects.
+	- tell us which object do you want ?
+	- mention all the classes in one annotation or file
+	- then call using the function .getBeans
+
+JPA = Entity management framework
+Spring = Object management framework
+Spring Core - DI - Dependency Injection
+
+Example : 
+	Biru b = new Biru();
+	Gabbar g = b.getGabbar();
+
+	Account a = new Account(); // not this way
+	Account a = Bank.getAccount(); // Bank is a factory to generate Account for us
+
+--------------------------------
+Q) How can we connect to users ?
+Socket s1 = new Socket() - to connect to multiple machines at a time using loop.
+Thread t1 = new Thread() - to make it available to multiple users at a time.
+p1 = s1 + t1;
+p1 is proxy(substitute)
+
+SPRING have all the 7 features- only delcare what you want.
+
+-------------------------
+
+STEPS FOR SPRING : 
+	1. Create a maven project.
+	2. Create a simple project(skip archetype)
+	3. group id and artifact id
+	4. pom.xml
+		configured with 
+			<spring-context>
+			<spring-test>
+			...
+			<spring-jpa>
+			<spring-jdbc>
+			...
+
+	5. configure META/INF/myspring.xml
+		-declare all your concerned classes inside this file
+		in xml format
+
+		<bean id="acc" class="com.kpit.Account">
+		</bean>
+
+	6. write your code to work with 
+		ApplicationContext ctx = new ClasspathXMLApplicationContext("myspring")
+
+		Account a = ctx.getBean("acc");
+
+
+
+----------------------------
+Extra learnings
+super is first line in constructor and is by default present there.
+this - it is the memory address of the current class constructor.
+
+What is the default strategy of the spring/ bean loading ? It is singleton.
+but if you want multiple objects then go for prototype.
+
+Spring is a declarative program.
+
+* scope="prototype" -> created different objects in spring  
+
+* scope="singleton" -> it lets the bean in xml file create only one object.
+
+* ApplicationContext -> is an interface
+
+* ClassPathXmlApplicationContext is implementation of ApplicationContext.
+
+* Using annotations we can create a speparte file for the class and 
+
+* Spring framework should be compatible with maven versions
+	like : spring framework 5.1.10 is compatible with 11 maven version.
+
+* Monday Spring assessment : 
+	- Componenet : id, scope : prototype(multiple objects), singleton(one object)
+	- singleton is default.
+
+* @repository - for storing the data in the database.
+
+* @component - we write this to avoid bean tag in xml file
+
+		@Compenent
+	    	    |
+------------------------------------------------------------------
+|		|			|			|
+@Repository	@Service 	@Controller 		@RestController
+
+	http://localhost:8080/MyAirlineProject/addFlight/101/JetAir/5000
+
+	class FlightManagement{
+		@PutMapping("/addFlight/{x}/{y
+		public void addNewFlight(){
+		
+
+
+
+
+* Rest End points we need to make in 5th question of marathon.
+
+* @Autowire - spring will understand 
+	
+
+	pojo (defined materirals)_ > repositories (poji)  > services > controller > customer
+	vada (batter, dal etc) > cook > waiter> customer
+
+
+in pom : spring context, spring test, hsqldb, hibernate, junit
+Maven : It set ups all the jars from the internet that needs to be there automatically.
+	Otherwise will have to add jar files manually.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

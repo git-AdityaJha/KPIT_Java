@@ -1,0 +1,242 @@
+-->The very first feature of enterprise applications :
+ 
+	1. Remote capability of an application
+	Ex : Google, Facebook, Wikipedia
+	
+	2. High availability of the application.
+	
+	3. Multi-threaded.
+		○ Available to multiple people.
+	
+	4. Pooling of resources : Pool is a collection of common resources.
+	
+	5. Caching of resources : Pool and caches are inter-related.
+		○ Any enterprise maintain pool of resources and cache of resources.
+	
+	6.  Transaction management.
+		○ It contains Acid property
+		
+	7. Security Management.
+		○ TLS 
+
+
+OOPS COCEPT : 
+-------------
+
+	1. Abstraction :  
+		○ It is the "what is?" part of an object.
+		○ Hiding the complexity of an object.
+
+	What is an Atm ?  -->  dispense cash.
+	
+		a. Data abstraction
+			§ private long totalNUmberOfHits.
+			
+		b. Procedural abstraction
+			• private void logTheUser() {}
+			• private void dispenseCash( ) { }
+			
+		c. Class abstraction
+			• private class permission { }
+
+
+	2. Encapsulation :  
+		○ It is the "How is it?" part of an object.
+		○ Writing the complexity of an object.
+
+	How is it dispensed ? 
+
+	class ATM {
+		private long calculateTotalNumberOfHits( ) {
+			totalNumberOfHits++;
+		}
+		
+		private dispenseCash( ){
+			..actual code to deal with the h/w
+		}
+		
+		void withdraw(float amt) {
+			...
+			...
+			dispenseCash(amt);
+			...
+			...
+		}
+	}
+
+
+	3. Polymorphism
+	   ------------
+		
+		- ability of a business entity to have many forms
+
+		a. class extension
+		
+					Doctor
+					|
+			---------------------------------
+			|
+			Surgeon
+			|isA
+		------------------
+		|isA		  |
+	Heart Surgeon	  Neuro Surgeon
+
+	
+		b. function overloading 
+			ability of a function to be redefined with same name 
+			but they all can be differentiated on the following terms
+				i. number of parametere/ arguments
+				ii. type of parameters
+				iii. sequence of type of parameteres
+
+		c. function overriding
+			- let child class redefine a function that is present in its super class
+
+			class BankAccount {
+				float balance;
+				void withdraw(float amt){
+					balance -= amt;
+				}
+			}
+
+			class SavingsAccount extends BankAccount {
+				void withdraw(float amt){
+					if(amt > (balance-5000){
+						sop("maintain min bal as 5000");
+					}
+					else super.withdraw(amt);
+				}
+			
+			class FixedDepositAccount extends SavingsAccount{
+				float maturityDate;
+				void withdraw(float amt){
+					if(maturityDate < currentDate){
+						sop("your account is not matured");
+					}
+					else super.withdraw(amt);
+				}
+
+
+
+		d. operator overloading
+
+
+		class Doctor
+		{
+			void diagnose( ) {
+			}
+			void diagnose(int level){
+			}
+			void diagnose(float time){
+			}
+			void diagnose(int level, float time){
+			}
+			void diagnose(float time, int level){
+			}
+
+		}
+		class Surgeon extends Doctor
+		{
+			void diagnose(){ // same signature as of the super class function 
+			}
+		}
+		---notes here-----
+
+		Doctor d= new Doctor();        // c++ : Doctor *ptr = new Doctor();
+		d.diagnose(5.4f);
+		d.diagnose(8);
+
+	      * d = new Surgeon();
+		d.diagnose(); // Doctor::diagnose(); compile-time binding
+			      // Surgeon::diagnose(); run-time binding
+
+
+
+	Understanding purpose : 
+					BankAccount
+						| withdraw(float amt);
+			-------------------------------------------------------
+			|			|			      |
+		SavingsAcc		CurrentAcc			CreditAcc
+		withdraw(float amt);	withdraw(float amt);		withdraw(float amt);
+		maintain		maintain			maintain
+		min bal			overdraf			creditlimit
+
+		BankAcc baAcc;
+		
+		baAcc = new SavingsAcc();
+		OR
+		vaAcc = new CurrentAccount();
+		OR
+		baAcc = new CreditAccount();
+		----------------
+		baAcc.withdraw();	--> BankAccount:: withdraw();
+		
+		
+// Assignment : 
+ 1. Fixed deposit acc - child of savings
+ 2. Credit card acc - child of bank account - cash limit, credit limit.
+ 3. Current acc - child of none account. separate account.
+
+// MCQ tomorrow (19/1/24) : 
+ * Whatever taught till 19/1/24.
+
+
+
+
+
+
+
+
+
+
+
+EXTRA NOTES OF THE DAY : 
+
+Unmanifest 									Manifest
+Thought + Feeling                                                               Action + Result
+									        
+										
+Thoughtrons
+
+-- Book - Power of now.
+-- Line - "From where these thoughts are coming"
+
+-- James goslin book -> for java.
+
+
+Questions for marathon :
+------------------------
+1. Exception handling
+2. Collection
+3. JDBC - Java database
+4. JPA - Java persitance api
+5. Spring boot
+AND
+1. Inheritance - 5 questions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

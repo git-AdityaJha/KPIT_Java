@@ -1,0 +1,18 @@
+package company.jdbc;
+
+import java.sql.*;
+import java.util.*;
+
+public class InsertTest {
+
+	public static void main(String[] args) {
+		Connection conn;
+
+		try {
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

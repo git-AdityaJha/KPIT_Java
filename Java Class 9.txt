@@ -1,0 +1,37 @@
+JAVA CLASS 9 | 25/1/24
+-------------------------
+
+MCQs : 
+----
+
+* TreeSet interface = comparable
+* HashSet - equals and hashcode - to allow uniqueness
+* which class holds the result for jdbc - resultSet
+* aggre - isA
+* composition - hasA
+* load the driver - DriverManager.registerDriver
+* getInt() getFloat() - functions of resultSet
+* producesA - 
+* TreeSet - sorted order
+* HasSet - randon insertion
+* Linkedlist = phone contact
+* Book - hashset
+* chemical - TreeSet
+* fastest search - ArrayList
+* fastest search and fastest access- TreeSet
+* rigrous insert update delete - HashSet
+* this() - current ctor
+* this - current class data/functions
+* Association is class of aggre and compo
+* static methods cannot be overridden
+* overridden methods must be accessible methods and instance methods.
+
+
+
+------------------SELF NOTES--------------------------
+
+SPRING BOOT : 
+	* don't
+
+
+ 

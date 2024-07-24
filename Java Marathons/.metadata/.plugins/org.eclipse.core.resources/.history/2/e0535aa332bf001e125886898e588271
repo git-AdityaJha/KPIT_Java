@@ -1,0 +1,9 @@
+package company.dept;
+
+public class Department {
+	int deptNumber;
+	String deptName;
+	String deptLocation;
+	
+	
+}

@@ -1,0 +1,1466 @@
+
+1 exception
+	Rocket - launch - IgnitionExcepiton, BoosterException
+2 collection
+	ChemicalElement { atomicnumber,aweight,aname }
+		peridicTable as <--TreeSet
+	Comparable
+
+3 jdbc
+		CRUD operation
+		create
+		read record
+		update record
+		delete record	
+4 jpa
+5 spring
+
+
+		E	|	B		
+		-----------------
+		S	|	I
+
+
+			who
+			|Employee|Developer
+			|Tester|Deployers|DBA...
+		---------------------
+		|		|
+		where		when
+		|Pune		|2024 Jan	
+	----------------------------------
+	|		|		|
+	why		what		how
+	|		|		|	
+	Java		InFORMation	Implementation
+					.......
+					1,2,3,4,5
+	
+
+
+		Java Technology
+			|
+	-----------------------------------
+	|		|		|
+	JSE		JEE		JME
+	Standard	Enterprise	Micro
+	|		|		|
+	Core		---------		
+Desktop application	|	|
+Language Fundas		WEB	EJB	
+OOPS			http	non-http
+Packages		|		|
+*Exception handling	Servlet	------------------
+Multithreading		JSP	|	|	|
+Generics			Session Entity	Message
+*Collections			|Spring*   |JPA*   |	
+File IO		    Stateless  Stateful  BMP CMP SMS Mail
+*JDBC		bookmyshow	
+|
+Advanced Java
+|
+Networking
+RMI
+
+
+
+	Four Types of Functions
+
+
+1. Function without argument and function without return value
+2. Function with argument but without return value
+3. Function with argument and with return value
+4. Function without argument but with return value
+
+
+
+Features of Enterprise application
+
+1. RC
+2. HA
+3. MT
+4. POR
+5. COR
+6. TM
+7. SM
+
+
+constructable				constructable
+|					|
+Frequency				Frequency
+|					|
+invisible				visible
+|					|
+Unmanifest				Manifest
+Thought  + Feelings(Emotions)		Action + Result
+Escrow
+Dashboard
+of feelings
+bad <----> good
+
+		brain vs heart
+		|	  |
+		thought	  30 times more than brain
+		rational
+			TEAR
+
+
+OOPS Concepts
+--------------
+1. Abstraction
+		
+	- It is the "what is?" part of an object
+	- hiding the complexity of an object
+
+Farmer --> What is an Atm?"
+
+		- dispense cash
+		
+	a. data abstraction
+		private long totalNumberOfHits;
+
+	b. procedural abstraction
+		private void logTheUser() { }
+		private void dispenseCash() { } 
+	c. class abstraction
+		private class Permission { }
+
+ 
+2. Encapsulation
+
+	- It is the "How is it?" part of an object
+	- writing the complexity of an object
+
+		- how is it dispensed?
+
+
+	class ATM {
+		
+		private long calculateTotalNumberOfHits() {
+			totalNumberOfHits++;
+		}
+		private dispenseCash() {
+			..actual code to deal with the h/w
+		}
+		void withdraw(float amt) {
+			...
+			...
+			dispenseCash(amt);
+			..
+			..
+		}
+	}
+
+
+3. Polymorhism
+
+	- ability of a business entity to have many forms
+	  
+	a. class extension
+
+			Doctor
+			|
+		----------------
+		|
+		Surgeon
+		|isA
+	------------------
+	|isA		|
+HeartSurgeon	NeuroSurgeon
+
+	b. function overloading
+		ability of a function to be redefined with same name
+		but they all can be differentiated on the following terms
+			i. number of paremeters/arguments
+			ii. type of parameters
+			iii. sequence of type of parameters
+
+	c. function overriding
+		- let child class redefine a function that is present
+		in its super class
+		- 
+		class BankAccount {
+			float balance;
+			void withdraw(float amt) { //OVERRIDDEN
+				balance -= amt;
+			}
+		}
+
+		class SavingsAccount extends BankAccount {
+			void withdraw(float amt) { // OVERRIDING
+				if( amt > (balance-5000) ) {
+					sop("maintain min bal as 5000");
+				}
+				else 
+					super.withdraw(amt);
+			}
+		}
+		class FixedDepositAccount extends SavingsAccount {
+			float maturityDate;
+			void withdraw(float amt) {
+				if(maturityDate < currentDate) {
+					sop("account not matured..cannot withdraw");
+				}
+				else
+					super.withdraw(amt);
+			}
+		}
+
+	d. operator overloading
+
+
+	class Doctor
+	{
+		void diagnose() {
+		}
+		void diagnose(int level) {
+		}
+		void diagnose(float time) {
+		}
+		void diagnose(int level, float time) {
+		}
+		void diagnose(float time, int level ) {
+		}
+
+	}
+	class Surgeon extends Doctor {
+		void diagnose() { // same signature as of the
+		}			// super class function
+	}
+	class HeartSurgeon extends Surgeon {
+		void diagnose() {
+		}
+	}
+
+	Doctor d = new Doctor();
+			// C++ Doctor *ptr = new Doctor();
+
+	d.diagnose(); // Doctor::diagnose();
+
+	d.diagnose(5.4f);
+	d.diagnose(8);
+
+	d = new Surgeon();
+
+d.diagnose(); // Doctor::diagnose(); compile-time binding
+
+		//Surgeon::diagnose(); run-time binding
+
+
+		BankAccount
+			|withdraw(float amt);
+	---------------------------------
+	|		|		|
+	SavingsAccount CurrentAccount CreditAccount
+	withdraw(float)	withdraw(float) withdraw(float)
+	  maintain	maintain	maintain
+ 	  min bal	overdraf	creditlimit
+
+
+	BankAccount baAcc;
+
+	baAcc = new SavingsAccount();
+
+	OR
+
+	baAcc = new CurrentAccount();
+		
+	OR
+
+	baAcc = new CreditAccount();
+
+	------------
+
+	baAcc.withdraw(); -- BankAccount::withdraw();
+
+	
+
+
+
+
+
+
+
+
+4. Inheritance
+
+	- ability of a business entity to acquire properties
+	  from other existing entities
+
+	Inheritance of		vs	Inheritance of
+	Derivation			Implementation
+
+	regular classes		vs	abstract classes
+					and interfaces
+
+	A
+	|		X	Y
+	|single		|	|
+	B		---------
+	|multi		|
+	C		D
+	|		|multiple
+	-----------------
+		|
+		E
+		|
+	-----------------
+	|	|	|
+	P	Q	R
+		|	|
+		---------
+		    |
+		    S
+	a. single level
+	b. multi level
+	c. multiple level
+	d. hierarchical level
+
+
+
+
+
+
+		BankAccount baAcc1 = new BankAccount();
+		BankAccount baAcc2 = new BankAccount();
+		BankAccount baAcc3 = new BankAccount();
+		BankAccount baAcc4 = new BankAccount();
+		BankAccount baAcc5 = new BankAccount();
+		BankAccount baAcc6 = new BankAccount();
+
+
+
+	STACK				HEAP
+	|				|
+					FIELD AREA
+			accountNumber accountHolder accountBalance
+			------------------------------------------	
+			|	     |   	   |		 |
+			------------------------------------------	
+			10020
+	+-------------->
+	|				METHOD AREA
+	10020				BankAccount() { }
+	baAcc1				withdraw(amt) { }
+					deposit(amt) { }
+					showBankAccount(){}
+
+			accountNumber accountHolder accountBalance
+			------------------------------------------	
+			|	     |   	   |		 |
+			------------------------------------------	
+			10070
+	+-------------->
+	|				
+	10070				
+	baAcc2c2c				
+
+
+
+
+
+
+			Association
+			|
+	----------------------------------
+	|	|		|	|
+	isA	hasA		usesA	producesA
+
+
+	class HeatingCoil
+	{
+
+	}
+
+	class Microwave //whole
+	{
+		//part 
+		HeatingCoil theCoil = new HeatingCoil();
+
+	}
+
+	class Engine { }
+	class Wheel { }
+
+	class Vehicle { }
+
+	class LandVehicle extends Vehicle { }
+
+	class Car extends LandVehicle // isA
+	{
+		//define objects inside teh FIELD section
+		//hasA
+		Engine theEngine = new Engine();
+		Wheel right = new Wheel();
+		Wheel left = new Wheel();
+		Wheel rearRight = new Wheel();
+		Wheel rearLeft = new Wheel();
+		
+	}
+	
+
+
+	class Heart
+	{
+	}
+	class Brain { }
+	class Lung();
+	class Kidney{}
+	class Liver { }
+
+	class Human <-- Whole
+	{
+		Heart theHeart = new Heart(); <-part
+		Brain brain = new Brain();
+		Lung rightLung = new Lung();
+		Lung leftLung = new Lung();
+		Liver ..
+		Kidney ..
+	}
+
+	class Stethoscope
+	{
+
+	}
+
+	class Doctor extends Human // isA
+	{
+		int id;
+		int age;
+		String name;
+		Stethoscope stetho = new Stethoscope();
+		int numberOfPatientsHandled;
+	}
+	
+	class Surgeon extends Doctor //isA
+	{
+
+	}
+
+
+
+	Workbook <-- mysalary.xls <-- File
+
+		col
+		A	B	C	D 	....
+
+row 	1	50
+
+	2	60
+
+	3	70
+
+	4	=sum(A1..A3)
+
+	5	
+
+	Sheet1 | Sheet2 ...  
+
+
+	class Cell
+	{
+		String columnName;
+		int rowNumber;
+		String value;
+
+	}
+
+	class Sheet
+	{
+		Cell cell1 = new Cell("A",1,50);
+		Cell cell2 = new Cell("A",2,60);
+		Cell cell3 = new Cell("A",3,70);
+		Cell cell4 = new Cell("A",4,"=sum(A1..A3"));
+
+	}
+
+	class WorkBook extends File //isA
+	{
+		Sheet sheet1 = new Sheet();
+		Sheet sheet2 .. 
+		..
+		..
+
+	}
+
+
+	class Camera
+	{
+		Lens lens = new Lens();//has
+
+		produced	used....
+		Photo click(Scene scene, Light light, Shadow shadow) {
+			Photo photo = new Photo();
+			return photo;	
+		}
+		zoomIn() { }
+		zoomOut() { }
+		focus() { }
+
+	}
+	class VideoCamera extends Camera
+	{
+		VideoClip record(MovingScene scene, Light l, Shadow sh) {
+		}
+
+	}
+
+	class Photographer
+	{
+		Camera cam = new Camera();
+	}
+
+	class Cinematographer extends Photographer
+	{
+		VideoCamera vidCam = new Camera();
+
+	}
+
+
+	controll		uncontrolled
+				1 to 4 
+
+	static
+
+	non-static
+
+	
+	FIELD		METHOD		CLASS
+------------------------------------------------------
+final	constact	cannot be	cannot 
+			overridden	become father
+
+static	shared across	to refer	-
+	all the objs	other static
+	of the class	members
+
+abstract NA		partial contract    a class
+			of a class	    optional
+			- method without    abstract
+			body		    method
+-------------------------------------------------------
+
+
+
+
+	abstract class GeometricalShape
+	{
+		abstract void draw(); // abstract function
+			//resides in an abstract class
+	}
+
+	class BankAccount
+	{
+
+	}
+
+
+
+
+	- abstract class meant for inheritance
+
+	- cannot instantiate abstract class
+
+	- it may have abstract methods
+
+		or may not have
+
+	- it may have non-abstract methods
+		so that all children can utilize them
+
+
+	State true or false
+	Q1) abstract class may have non-abstract methods
+
+		a) true
+		b) false
+		c) none of the above
+		d) all of the above
+
+
+	Q2) a  child class 
+	    must implement the abstract methods
+	    of its immediate abstract parent
+
+                a) true
+                b) false
+                c) none of the above
+                d) all of the above
+
+
+
+	abstract class GeometricalShape
+	{
+		abstract void draw(); // abstract function
+			//resides in an abstract class
+	}
+
+	interface  Shape
+	{
+		void draw();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+interfaces
+
+packages
+
+Exception handling = 1
+
+Generics Collection =2 
+
+JDBC = 3
+
+JPA = 4
+
+SPring 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Circle circ1 = new Circle(50);
+
+
+	STACK				HEAP
+
+				PI
+				---------
+				| 3.14	|
+				---------
+
+				radius	
+				---------
+				| 50	|
+				----------
+	+----------------------> 1022
+	|
+	1022
+	circ1
+
+				radiusI
+				---------
+				| 60	|
+				---------
+	+----------------------> 1044
+	|
+	1044
+	circ1
+
+
+
+
+
+
+
+	-----------------
+	|  ICICI Bank	|
+	|-----	ROI	|
+	||   |	8.5	|
+	-----------------
+	
+	rate
+	8.5
+
+	static void showROI() {
+		sop(rate);
+	}
+	static void setROI(float r) {
+		rate = r;
+		accountBalance  =5000;
+		withdraw();
+	}
+
+
+	static canot access non-static
+
+
+
+
+
+
+
+
+
+
+
+	Light <-- pure partial
+	SunLight <-- partial info
+	MoonLight
+	TubeLight
+
+
+	GeometricalShape
+	Shape
+
+interface Instrument
+{
+	void use();
+}
+abstract class MusicalInstrument implements Instrument //isA
+{
+	abstract void play(); + 1	
+	public void use() { }
+}
+abstract class StringBasedMusicalInstrument extends MusicalInstrument
+{
+	abstract void tuneStrings() + 2
+	void clean() { } //b. inherited to its child
+	void packIt() { } 
+}
+class Guitar extends StringBasedMusicalInstrument
+{
+	void pluck() { } // a. exclusive
+	void packIt() { } //c. inherited-cum-overridden
+	void play() { } //d. implemented - mandatory
+	void tuneString() { } //d. implemented - mandatory
+	public void use() { } //d. implemented - mandatory
+}
+
+
+	Object x = new HeartSurgeon();
+
+	x.toString()
+	x.diagnose();
+	x.doSurgery();
+	x.checkECG();
+
+
+	Guitar guitar = new Guitar();
+
+	Instrument i = guitar; 
+	i.use();
+	i.play();
+	i.tuneString();
+	i.pluck();
+			Instrument <-- pure - Pure AC - interface
+			     |use();
+	-------------------------------------------
+	|					|
+MusicalInstrument <-AC			MedicalInstrument<--AC
+	|play();				|diagnose();
+--------------------------------	-----------------
+  |			|		|		|
+StringBased	AirBased <--AC		Surgical	Pathological
+Musical		Musical			Medical		Medical
+Instrument	Instrument		Instrument	Instrument
+|tuneStrings();	|			|sterilize();	|read();
+|clean(){..}				|		|
+Guitar	Violin	Flute <--concrete	Cutter		ECGMachine
+| a) pluck(){}				| cut() { }	| read
+| b) tuneStrings(){} 			|		| heart
+| b) play(){}						  Beats();
+| b) use(){}
+| c) inherited
+| d) overridden
+|  clean(){ ..... } <--d
+|
+Electronic
+Guitar	
+| presets();
+
+	interfaces
+
+		- pure abstract class
+
+
+
+
+			I
+			|
+		----------------
+		|		|
+		MusI		MedI
+		|
+	--------------
+	|	|	|
+	SBMI	ABMI DBMI
+	|
+	------------------
+	|		|
+	| Plucking	| Bowing
+	| |pluck();	| | bow();
+	Guitar		Violin
+	
+	
+
+
+
+
+	Packages 	= directories on the Operating system
+	|			folders 
+	in java
+
+
+	packages = to organize the relevant classes in a folder
+
+	java.lang		java\lang
+	java.awt		java\awt
+
+
+			java
+			|
+		-------------------------------------
+		|	|	|	|	|
+		lang	awt	sql	net	util
+		|	|	|	 |	|
+		Object	Button	Driver Socket	LinkedList
+		String  Frame   ResultSet	ArrayList
+		Thread  Checkbox
+		Exception
+
+
+	use the package statement to make a package
+		- package must be the first code in any 
+		java source if issued
+
+
+	use the import statement to avail the package
+
+
+	java.lang <-- default package issued for java codes
+
+
+
+			ACCESS SPECIFIERS
+
+		1.       <-- a blank | default | friendly
+				within the same folder/package
+			ButterFly and Tiger can access each
+			other token to create object of each 
+			other
+
+		2. private <-- referred within the class code body
+		3. protected <-- can be referred by the child class
+			within the same package
+			or outside of that package
+
+			- using the parent class reference
+			protected is referred within the
+			same package BUT Not in the
+			other pacakges
+
+			- without using the parent class
+			reference | child can directly
+			refer the protected members
+			within the same or diff pacakge
+
+
+		4. public <-- to the whole world
+
+
+
+
+			jungle
+			|
+		--------------------------
+		|	|	|	|
+		farm	river	tree	cave
+		|	|	|	|
+	  FarmHouse	Frog	Parrot	Lion
+			Fish	Sparrow Bear
+				Monkey  Tiger
+				Chimp	WhiteTiger
+
+		
+Royal Science of God Realization
+
+Human Mind = Dhritrashtra in Mahabharata
+	|
+	Desires = Duryodhana
+
+Good Habits vs Bad Habits = Dronacharya
+
+EGO = Bhishma
+
+
+Arjuna 	= Manipura Chakra
+Krishna = Adnya Chakra - Third EYE 
+
+
+
+
+
+
+Naming Convention in Java
+-----------------------------
+
+
+	1. ClassName - DriverManager
+
+
+	2. methodName - setLookAndFeel() { }
+
+
+	3. variableName - socialSecurityNumber=123213
+			
+
+	4. Packages	- jungle.cave
+
+			lengthOnTarget=3;
+
+			Jungle.Cave.tiger.Jump(LengthOnTarget);
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Exception Handling
+-------------------
+
+	handling run time errors
+
+
+			Errors
+			|
+	-----------------------------------
+	|	|	|	|	|
+	compile run	linker	fatal	logical
+	|	 |	  |	  |	  |
+	syntax Exception missing  term    4+4=16
+			 libraries
+					
+	;	10/0	 .jar file  out of    	
+	missing		missing	    memory
+
+		
+		To handle runtime errors
+
+
+	checked				unchecked
+	by the compiler			by the compiler
+	
+try
+catch
+throw
+throws
+finally
+
+
+			Object
+			|
+			Throwable
+			| getMessage()
+		-------------------
+		|isA		|isA
+		Error		Exception
+				|checked
+		--------------------------
+		|unchecked		|
+	RuntimeException	------------------
+	|||  ||||||		|	|	|
+      NPE|AE |		   IOException SQLExce.. ...
+       IOBE  |
+       | |
+   SIOBE AIOBE
+		
+
+
+
+
+
+			Car
+
+				
+	shortDrive()		longDrive()
+	|			|
+	3 km			300 km
+
+
+	1 CoolantException
+	2 FuelException
+	3 StepneyException
+	4 InfotainmentException
+	5 ACException
+	6 SeatBeltException
+	7 GearException
+	8 AccidentException
+	9 AirBagException
+	10 TrafficException
+	11 ParkingException
+	12 TyrePressureException
+	13 TyreTemperatureExceededException
+	
+
+
+
+
+
+	You cannot decide your future.
+	But you can decide your habits.
+	And your habits will decide your future.
+
+
+
+
+	Exception 
+	
+
+	try
+	{
+		open a file1,2,3
+		code1
+		code2
+		code3
+	}
+	catch(....) { }
+	catch(....) {
+		System.exit(12);
+	 }
+	catch(....) { }
+	catch(....) { }
+	catch(....) { }
+	catch(....) { }
+	finally {
+		bound to run regardless of the exception
+		close the file 1,2,3
+	}
+
+
+	try
+	{
+	}
+	finally {
+	}
+
+
+
+
+
+
+
+
+	try
+	{
+	}
+	catch() { }
+
+	try
+	{
+	}
+	finally { }
+
+	try {
+	}
+	finally { }
+	catch() {}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	throw
+	throws
+
+
+
+
+
+
+
+
+
+
+
+//unchecked
+class SpeedLimitExceededException extends RuntimeException
+{
+}
+//checked
+class PUCException extends Exception 
+{
+}
+
+
+	class Car
+	{
+		void longDrive() throws PUCException,.,.,.,
+		{
+			for(...300){
+			 ...if..
+			  throw new SpeedLimitExeededException();
+			..
+			..if..
+			  throw new PUCException();
+			}
+		}
+	}
+
+
+
+
+	Components Orthogonal Space
+
+
+			X - Content
+			|data type
+			|   ButterMilk
+			|   FriedRice
+			|   Paneer Chilly
+			|   Noodles
+			|   Pickle
+		--------------------
+		|		|
+		Y		Z
+		|		|
+	Container		Algorithm
+	|	|		| drink();
+	|	+------[ I ]----+ eat();
+     Glass		 |
+     Plate	       Iterator
+     Bowl		|
+			Straw
+			Spoon
+			Fork
+			ChopStiks
+
+
+			     Iterable <<i>>
+				|
+			     Collection <<i>>
+				|
+		---------------------------------
+		|				|
+		List <<i>>			Set <<i>>
+		|duplicate			|unique
+	--------------------		------------------
+	|		|		|		|
+  ArrayList	  LinkedList	   TreeSet	   HashSet <-C
+ +--+		|   |->|  |->|  |
+ |  |0		| n1|<-|n2|<-|n3|
+ +--+		 doubley linked
+ |  |1
+ +--+
+ |  |2
+ +--+
+ |  |3
+   |
+growable
+
+				50
+				|
+			-------------------
+			|		  |
+			30		  70
+			|		  |
+		-----------------	----------
+		|		|	|	|
+		10		40	60     80
+		|
+	    ---------
+	    |
+	    5
+
+
+		Comparable <---->  Comparator
+
+			Map <<i>>
+			|<Key,Value>
+		------------------
+		|		|
+		TreeMap		HashMap
+
+
+Sky   |V
+Air   |A
+Fire  |M
+Water |S
+Earth |M
+
+
+GET940
+	TreeMapTest.java
+
+
+
+JDBC
+
+	Java Database Connectivity
+
+
+
+	Java	<-----------------> open database
+	
+		DriverManager
+		| registerDriver()
+		| getConnection()
+	--------+
+	|
+	Driver ------------------> Connection
+					|
+			-----------------------------
+			|	|		 |
+		  Statement  PreparedStatement CallableStatement
+		SELECT     INSERT/UPDATE/DELETE	  procedure/functions
+	
+
+	1. Know ur database [ mysql ]
+	2. know the username and password of it
+	3. know the drivername for it to connect
+	4. DriverManager.registerDriver()
+	5. Connction conn =DriverManager.getConnection()
+	6. Statement st = conn.createStatement();
+	7. ResultSet rs = st.executeQuery();
+	8. process the rs
+	9. close the rs, st,conn
+
+
+
+DriverClass
+	com.mysql.jdbc.Driver
+
+DSN
+	jdbc:mysql://localhost:3306/mysql","root","root"
+
+
+
+	1. right click project
+	2. properties
+	3. java build path
+	4. Libraries TAB
+	5. click classpath
+	6. Add External Jars <--button
+	7. browse the mysql-connector folder [ downloaded ]
+	8. select the jar file - mysql-connector-j-0.8.0.32.jar
+
+
+
+
+
+	dept			emp
+	dno  dname  loc		empno  ename  job
+	10   IT	    NY		101    Jack   Salesman
+
+			customer
+			custid   custname   address
+			1012	 Vollyrite  Mumbai
+
+POJOs
+	Department d = new Department();
+	Employee e = new Employee();
+	Customer c = new Customer();
+
+	Statement st = conn.craeteStatement();
+	ResultSet rs = st.executeQuery("select * from dept");
+	while(rs.next){
+		d.setDeptNo(rs.getInt(1));
+		sop("dno : "+d.getDeptNo));
+
+
+DAO
+----
+
+		Data Access Object
+
+
+
+		- to hide teh low level database logic
+
+	1.POJO	2.Poji	3. PojiImpl
+
+
+TABLE	emp11
+	|
+	EMPNO ENAME SAL
+	101   Prakhar 50000
+
+	Address
+	place	area	city	state	pin	eno
+	WA	Wakad	Pune	Mah	411,,	101
+	EA	Pimpri	Pune	Mah	422	101
+	
+POJO - WHICH IS MAPPED WITH THE STRUCTURE OF YOUR TABLE
+
+	POJO = BEAN = COMPONENT = CLASS
+
+class Employee
+{
+	int employeeNumber ; // mapped with EMPNO
+	String employeeName; // mapped with ENAME
+	float employeeSalary; // mapped with SAL
+	ArrayList<Address> addrList = new ArrayList<Address>();
+
+	//mandatory
+	public Employee() {
+	}
+	getters/setters
+}
+
+class Address
+{
+	String place;
+	String   area;
+	String    city;
+	String    state;
+	long   pin;
+	int     eno
+
+}
+
+
+
+JPA
+-----
+	1. create maven project
+	2. create a simple project checkbox
+	3. select group id as com.kpit
+	   select artifact id as : JPAProject	
+	4. pom.xml to be configured
+		as per the predefined pom.xml
+		from existing project SBIHYD
+	5. META-INF/persistence.xml	
+		copied in src/main/resources folder
+	6. delete line number 12 if it is there
+	7. change teh database name to xdb if it is
+		HSQLDB
+	8. SET UP IS DONE
+
+
+
+
+
+	
+		Project structure
+
+
+	Tiger.class Lion.class Chitah.class
+
+	jar -cvf wildanimals.jar Tiger.class Lion.class
+				 Chitah.class
+
+	-c create
+	-v verbose [ show the progress ]
+	-f the jar file name specified
+
+.tar
+
+.rar
+
+.jar file
+-archieve = collection of multiple files bundled 
+
+			JPAProject
+			|
+		-----------------
+		|		|
+		src		pom.xml
+		|TDD		 3 dependecies
+	-----------------	 a. hsql
+	|		|	 b. hibernate
+	main		test	 c. jpa
+	|		|JUnit5	
+-----------------	testcase1
+|		|	testcase2, testcase3
+java		resources
+|		|
+Pojo		META-INF
+EMF		|
+EM		persistence.xml
+		7 keys configuration
+		dialect, showsql, hbm2ddl
+		driver,url,username,password
+
+
+
+
+
+
+	pojo
+A		Car
+
+	repo
+B		CarRepository
+		CarRepositoryImpl
+				src/main/test/CarRepositoryTesting
+				- 5 test cases to cross
+				verify/check the crud functions
+				whether they are properly 
+				running or not...
+			createCar(Car c)
+			{
+				..
+				manager.persist(c);
+				..
+			}
+	service
+C		CarService
+			createCarService() {
+				....
+				carRepo.createCar(car);
+				...
+			}
+
+
+
+
+	controller
+D		CarController
+
+				PostMan
+
+
+
+

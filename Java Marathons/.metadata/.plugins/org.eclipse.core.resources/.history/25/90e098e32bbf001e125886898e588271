@@ -1,0 +1,28 @@
+package elements.table;
+
+public class ChemicalElement implements Comparable<ChemicalElement>{
+	int elementNumber;
+	String elementName;
+	String elementFormula;
+	float atomicWeight;
+	
+	public ChemicalElement(int elementNumber, String elementName, String elementFormula, float atomicWeight) {
+		super();
+		this.elementNumber = elementNumber;
+		this.elementName = elementName;
+		this.elementFormula = elementFormula;
+		this.atomicWeight = atomicWeight;
+	}
+	
+	@Override
+	public int compareTo(ChemicalElement o) {
+		System.out.println("Comparing "+ elementNumber + " with "+ o.elementNumber);
+		return Integer.compare(elementNumber, o.elementNumber);
+	}
+
+	@Override
+	public String toString() {
+		return "ChemicalElement [elementNumber=" + elementNumber + ", elementName=" + elementName + ", elementFormula="
+				+ elementFormula + ", atomicWeight=" + atomicWeight + "]";
+	}
+}

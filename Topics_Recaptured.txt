@@ -1,0 +1,9 @@
+Some important topics to know from websites : 
+
+* Constructors : 
+	https://www.geeksforgeeks.org/properties-of-constructors-in-java/
+
+* Q) Can a class other than main class be public ?
+  Q) Constructor of a public class must be public or can be public ?
+  Q) Question from ChemicalElementTreeSet Assignment, that how does
+	compareTo function effecting the output ?

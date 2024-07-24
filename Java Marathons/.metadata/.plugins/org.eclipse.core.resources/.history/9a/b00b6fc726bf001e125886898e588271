@@ -1,0 +1,9 @@
+package rocket.station.exceptions;
+
+public class BoostException extends RuntimeException{
+
+	public BoostException(String message) {
+		super(message);
+		System.out.println("Some problem1 : "+ message);
+	}
+}

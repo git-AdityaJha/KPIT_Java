@@ -1,0 +1,43 @@
+package company.jdbc;
+
+import java.sql.*;
+import java.util.*;
+
+public class InsertTest {
+
+	public static void main(String[] args) {
+		Connection conn;
+
+		try {
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+			System.out.println("Driver registered...");
+			
+			conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "SA", "");
+			System.out.println("Connected to database...");
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the department number : ");
+			int deptNumber = sc.nextInt();
+			sc.nextLine();
+			
+			System.out.println("Enter the department name : ");
+			String deptName = sc.nextLine();
+			
+			System.out.println("Enter the department location : ");
+			String deptLocation = sc.nextLine();
+			
+			PreparedStatement pst = conn.prepareStatement("insert into dept_master values (?,?,?)");
+			pst.setInt(1, deptNumber);
+			pst.setString(2, deptName);
+			pst.setString(3, deptLocation);
+			
+			int row = pst.executeUpdate();
+			
+			System.out.println("Query Executed");
+			System.out.println(row + " row inserted !");
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

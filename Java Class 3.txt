@@ -1,0 +1,580 @@
+JAVA 3 CLASS | 19/1/24
+----------------------
+
+- If you keep doing the same thing you will be getting the same result.
+
+
+ASSOCIATION :
+-----------
+	Association
+			|
+	----------------------------------
+	|	|		|	|
+	isA	hasA		usesA	producesA
+
+
+	class HeatingCoil
+	{
+
+	}
+
+	class Microwave //whole
+	{
+		//part 
+		HeatingCoil theCoil = new HeatingCoil();
+
+	}
+
+	class Engine { }
+	class Wheel { }
+
+	class Vehicle { }
+
+	class LandVehicle extends Vehicle { }
+
+	class Car extends LandVehicle // isA
+	{
+		//define objects inside the FIELD section
+		//hasA
+		Engine theEngine = new Engine();
+		Wheel right = new Wheel();
+		Wheel left = new Wheel();
+		Wheel rearRight = new Wheel();
+		Wheel rearLeft = new Wheel();
+		
+	}
+	
+
+
+	class Heart
+	{
+	}
+	class Brain { }
+	class Lung { }
+	class Kidney { }
+	class Liver { }
+
+	class Human <-- Whole
+	{
+		// hasA relationship : 
+		Heart theHeart = new Heart(); <-part 
+		Brain brain = new Brain();
+		Lung rightLung = new Lung();
+		Lung leftLung = new Lung();
+		Liver ..
+		Kidney ..
+	}
+
+	class Stethoscope
+	{
+
+	}
+
+	class Doctor extends Human // isA
+	{
+		int id;
+		int age;
+		String name;
+		Stethoscope stetho = new Stethoscope();
+		int numberOfPatientsHandled;
+	}
+	
+	class Surgeon extends Doctor //isA
+	{
+
+	}
+
+
+
+	Workbook <-- mysalary.xls <-- File
+
+		col
+		A	B	C	D 	....
+
+row 	1	50
+
+	2	60
+
+	3	70
+
+	4	=sum(A1..A3)
+
+	5	
+
+	Sheet1 | Sheet2 ...  
+
+
+	class Cell
+	{
+		String columnName;
+		int rowNumber;
+		String value;
+
+	}
+
+	class Sheet
+	{
+		Cell cell1 = new Cell("A",1,50);
+		Cell cell2 = new Cell("A",2,60);
+		Cell cell3 = new Cell("A",3,70);
+		Cell cell4 = new Cell("A",4,"=sum(A1..A3"));
+
+	}
+
+	class WorkBook extends File //isA
+	{
+		Sheet sheet1 = new Sheet();
+		Sheet sheet2 .. 
+		..
+		..
+
+	}
+
+
+	class Camera
+	{
+		Lens lens = new Lens(); //hasA
+
+		produced	used....
+		Photo click(Scene scene, Light light, Shadow shadow) {
+			Photo photo = new Photo();
+			return photo;	
+		}
+		zoomIn() { }
+		zoomOut() { }
+		focus() { }
+
+	}
+	class VideoCamera extends Camera // isA 
+	{
+		// produces video	     //usesA relationship
+			    |			-----------------
+			    |			|	|	|
+		VideoClip record(MovingScene scene, Light l, Shadow sh) {
+			VideoClip video = new VideoClip();
+			return video;
+		}
+
+	}
+
+	class Photographer
+	{
+		Camera cam = new Camera(); //hasA
+	}
+
+	class Cinematographer extends Photographer //isA
+	{
+		VideoCamera vidCam = new Camera(); //hasA
+
+	}
+
+
+	controlled		uncontrolled
+				1 to 4 
+
+	static
+
+	non-static
+
+	
+	FIELD		METHOD		CLASS
+------------------------------------------------------
+final	constant	cannot be	cannot 
+			overridden	become father
+
+static	shared across	to refer	-
+	all the objs	other static
+	of the class	members
+
+abstract NA		partial contract    a class
+			of a class	    optional
+			- method without    abstract
+			body		    method
+-------------------------------------------------------
+
+
+
+
+	abstract class GeometricalShape
+	{
+		abstract void draw(); // abstract function
+			//resides in an abstract class
+	}
+
+	class BankAccount
+	{
+
+	}
+
+
+
+
+	- abstract class meant for inheritance
+
+	- cannot instantiate abstract class
+
+	- it may have abstract methods
+
+		or may not have
+
+	- it may have non-abstract methods
+		so that all children can utilize them
+
+
+	State true or false
+	Q1) abstract class may have non-abstract methods
+
+		a) true ------------> correct
+		b) false
+		c) none of the above
+		d) all of the above
+
+
+	Q2) a  child class 
+	    must implement the abstract methods
+	    of its immediate abstract parent
+
+                a) true ------------> correct
+                b) false
+                c) none of the above
+                d) all of the above
+
+
+
+	abstract class GeometricalShape
+	{
+		abstract void draw(); // abstract function
+			//resides in an abstract class
+	}
+
+	interface  Shape
+	{
+		void draw();
+	}
+
+
+-----------------------------------------------------------------------------------
+
+interfaces
+
+packages
+
+Exception handling = 1
+
+Generics Collection =2 
+
+JDBC = 3
+
+JPA = 4
+
+SPring 5
+
+-----------------------------------------------------------------------------------
+
+		Circle circ1 = new Circle(50);
+
+
+	STACK				HEAP
+
+				PI
+				---------
+				| 3.14	|
+				---------
+
+				radius	
+				---------
+				| 50	|
+				----------
+	+----------------------> 1022
+	|
+	1022
+	circ1
+
+				radiusI
+				---------
+				| 60	|
+				---------
+	+----------------------> 1044
+	|
+	1044
+	circ1
+
+
+
+
+
+
+
+	-----------------
+	|  ICICI Bank	|
+	|-----	ROI	|
+	||   |	8.5	|
+	-----------------
+	
+	rate
+	8.5
+
+	static void showROI() {
+		sop(rate);
+	}
+	static void setROI(float r) {
+		rate = r;
+		accountBalance = 5000; // error-> static cannot access non-static
+		withdraw();
+	}
+
+
+	static cannot access non-static
+	
+-------------------------------------------------------------------------------------
+
+* 8 type of functions -> 
+	4 -> return type and argument 
+	4 -> exclusive, inherited, overridden, abstract
+
+
+
+
+IMPORTANT NOTE : 
+- isA relationship impacts the data type
+- extends -> isA
+- define objects inside field section -> hasA
+
+
+--------------------------------------------------------------------------------------
+
+MARATHON Questions : 
+-------------------
+1. Exception handling = 1
+2. Generic Collections = 2
+
+-----------------
+HOMEWORK DONE ->
+-----------------
+public class Mahabharat {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WeaponsAndArmour sashtra = new WeaponsAndArmour();
+		sashtra.setWeapon1("Bow");
+		sashtra.setWeapon2("Arrow");
+		sashtra.setWeapon3("Spear");
+		sashtra.setArmour("Vest");
+		
+		Kauravas kaurav = new Kauravas("Duryodhan","99 brothers");
+		kaurav.train();
+		kaurav.prepareToFight();
+		kaurav.takeHelp();
+		
+		Pandavas pandav = new Pandavas("Yudhisthir","Bheem","Arjun","Nakul","Sehdev","Karn");
+		pandav.train();
+		pandav.prepareToFight();
+		pandav.takeHelp();
+		
+		Kurukshetra battleField = new Kurukshetra();
+		Warriors winners = battleField.fighting(kaurav, pandav);
+		System.out.println("--------------------");
+		System.out.println("Winners of this Dharm yudh : ");
+		System.out.println(winners);
+	}
+}
+
+abstract class Warriors{
+	final String LastArrow = "Bhramastra";
+	
+	abstract void train();
+	abstract void prepareToFight();
+	abstract void takeHelp();
+	
+}
+
+class WeaponsAndArmour{
+	static String weapon1;
+	static String weapon2;
+	static String weapon3;
+	static String armour;
+	final String finalWeapon = "Brahmastra";
+	
+	// getters and setters : 
+	public static String getWeapon1() {
+		return weapon1;
+	}
+	public static void setWeapon1(String weapon1) {
+		WeaponsAndArmour.weapon1 = weapon1;
+	}
+	public static String getWeapon2() {
+		return weapon2;
+	}
+	public static void setWeapon2(String weapon2) {
+		WeaponsAndArmour.weapon2 = weapon2;
+	}
+	public static String getWeapon3() {
+		return weapon3;
+	}
+	public static void setWeapon3(String weapon3) {
+		WeaponsAndArmour.weapon3 = weapon3;
+	}
+	public static String getArmour() {
+		return armour;
+	}
+	public static void setArmour(String armour) {
+		WeaponsAndArmour.armour = armour;
+	}
+	public String getFinalWeapon() {
+		return finalWeapon;
+	}
+	
+	// toString() : 
+	@Override
+	public String toString() {
+		return "WeaponsAndArmour [finalWeapon=" + finalWeapon + "]";
+	}	
+	
+}
+
+class Kauravas extends Warriors{ //isA
+	String Kaurava1;
+	String allKauravas;
+	
+	// constructor : 
+	public Kauravas(String kaurava1, String allKauravas) {
+		super();
+		Kaurava1 = kaurava1;
+		this.allKauravas = allKauravas;
+	}
+	
+	// getters and setters :
+	public String getKaurava1() {
+		return Kaurava1;
+	}
+	public void setKaurava1(String kaurava1) {
+		Kaurava1 = kaurava1;
+	}
+	public String getAllKauravas() {
+		return allKauravas;
+	}
+	public void setAllKauravas(String allKauravas) {
+		this.allKauravas = allKauravas;
+	}
+
+	// methods : 
+	void train() {
+		System.out.println("Kauravas training...");
+	}
+	void prepareToFight() {
+		System.out.println("Kauravas preparaing to fight...and wore "+WeaponsAndArmour.armour);
+	}
+	void takeHelp() {
+		System.out.println("Kauravas took help from narayani sena");
+	}
+
+	// toString() : 
+	@Override
+	public String toString() {
+		return "Kauravas [Kaurava1=" + Kaurava1 + ", allKauravas=" + allKauravas + "]";
+	}
+	
+}
+
+class Pandavas extends Warriors{ //isA
+	String Pandav1;
+	String Pandav2;
+	String Pandav3;
+	String Pandav4;
+	String Pandav5;
+	String Pandav6;
+	
+	// constructor :
+	public Pandavas(String pandav1, String pandav2, String pandav3, String pandav4, String pandav5, String pandav6) {
+		super();
+		Pandav1 = pandav1;
+		Pandav2 = pandav2;
+		Pandav3 = pandav3;
+		Pandav4 = pandav4;
+		Pandav5 = pandav5;
+		Pandav6 = pandav6;
+		
+		//hasA : Karn has kavach and kundal.
+		WeaponsAndArmour KavachAndKundal = new WeaponsAndArmour();
+	}
+	
+	// getters and setters :
+	public String getPandav1() {
+		return Pandav1;
+	}
+	public void setPandav1(String pandav1) {
+		Pandav1 = pandav1;
+	}
+	public String getPandav2() {
+		return Pandav2;
+	}
+	public void setPandav2(String pandav2) {
+		Pandav2 = pandav2;
+	}
+	public String getPandav3() {
+		return Pandav3;
+	}
+	public void setPandav3(String pandav3) {
+		Pandav3 = pandav3;
+	}
+	public String getPandav4() {
+		return Pandav4;
+	}
+	public void setPandav4(String pandav4) {
+		Pandav4 = pandav4;
+	}
+	public String getPandav5() {
+		return Pandav5;
+	}
+	public void setPandav5(String pandav5) {
+		Pandav5 = pandav5;
+	}
+	public String getPandav6() {
+		return Pandav6;
+	}
+	public void setPandav6(String pandav6) {
+		Pandav6 = pandav6;
+	}
+	
+	// methods : 
+	void train() {
+		System.out.println("--------------------");
+		System.out.println("Pandavas training...");
+	}
+	void prepareToFight() {
+		System.out.println("Pandavas preparaing to fight...and wore "+ WeaponsAndArmour.armour);
+	}
+	void takeHelp() {
+		System.out.println("Pandavas took help from Shri Krishna !!");
+	}
+
+	// toString() : 
+	@Override
+	public String toString() {
+		return "Pandavas [Pandav1=" + Pandav1 + ", Pandav2=" + Pandav2 + ", Pandav3=" + Pandav3 + ", Pandav4=" + Pandav4
+				+ ", Pandav5=" + Pandav5 + ", Pandav6=" + Pandav6 + "]";
+	}
+	
+}
+
+class Kurukshetra{
+	
+	//    producesA		   //usesA
+	//			|			   |
+	Warriors fighting(Kauravas kuruBrothers, Pandavas panduBrothers) {
+		String weapon1 = WeaponsAndArmour.weapon1;
+		String weapon2 = WeaponsAndArmour.weapon2;
+		System.out.println("-------------------------------------");
+		System.out.println("MAHABHARAT STARTED");
+		System.out.println("Kauravas and Pandavas started fighting...using "+weapon1+" and "+weapon2);
+		System.out.println("Lord Krishna made Dharm win over Adharm");
+		return panduBrothers;
+	}   
+}
+
+
+
+
+
+

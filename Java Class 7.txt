@@ -1,0 +1,115 @@
+JAVA CLASS 7 | 23/1/24
+-----------------------
+
+
+	
+
+.jar file
+-archieve = collection of mutiple class files bundled together.
+
+jar -cvf birds.jar Parrot.class Sparrow.class - to bundle all the birds.
+
+TO SET THE PATH OF JAR : set path=C:\Program Files\jdk-17.0.1\bin;%path%
+jar -tvf animals.jar
+
+
+STEPS -
+----------
+	1. create maven project
+	2. create a simple project checkbox
+	3. select group id as com.kpit
+	   select artifact id as JPAProject
+	4. pom.xml to be configured
+		as per the predefined pom.xml
+		from existing project SBIHYD
+	5. META-INF/persistence.xml
+		copied in src/main/resources folder
+	6. 	
+
+		Project structure
+		
+			JPAProject
+			|
+		----------------------------
+		|
+		src			     pom.xml
+		|				3 dependencies- .jar files
+	-------------------			a. hsql
+	|		   |			b. hibernate
+	main		test			c. jpa
+	|		   |JUnit5-f/w
+-----------------	testcase1
+|		|	testcase2, testcase3
+java		resources
+|		|
+POJO		META-INF
+EMF		|
+EM		persistence.xml
+		7 keys configuration
+		dialect, showsql, hbm2ddl
+		driver, url, username, password
+
+
+
+COMMANDS : 
+--------
+
+- drop table table_name;
+
+
+
+
+------------------
+MCQ revision : 
+
+
+
+* Methods who implement the methods from interface in child class
+  must be public.
+	otherwise compile time error
+
+* if interface have no methods then it is marker interface.
+
+* String str = "rose"; // remains in heap memory
+	str = "lotus";
+ // 11 methods : finalize : garbage collection 
+
+* one interface cannot implement another interface.
+
+* String builder and buffer are mutable. string class is immutable.
+
+* abstract class may have abstract methods
+
+* throws - checked exception
+* try catch compulsory for unchecked exceptions
+
+* finally always runs except system.exit()
+
+* throwable class child - error, exception. (Both are throwable).
+
+* to tune memory arguments in java : java -X
+	Xms<size>        set initial Java heap size
+
+* public class with public constructor can be instantiated to other classes in
+  other packages.
+
+* can a super class access the methods of the child.
+	NO
+
+* overriden methods : token known to the parent and child 
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

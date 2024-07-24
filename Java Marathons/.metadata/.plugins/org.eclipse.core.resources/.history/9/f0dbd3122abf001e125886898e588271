@@ -1,0 +1,9 @@
+package elements.table;
+
+public class ChemicalElementTest {
+
+	public static void main(String[] args) {
+		System.out.println("Creating objects of ChemicalElement class...");
+		System.out.println("---------------------");
+	}
+}

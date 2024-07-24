@@ -1,0 +1,40 @@
+package company.jdbc;
+
+import java.sql.*;
+import java.util.*;
+
+public class SelectTest {
+
+	public static void main(String[] args) {
+		Connection conn;
+
+		try {
+			// Driver Manager registered here 
+			DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+			System.out.println("Driver registered...");
+			
+			// Connection is established to database using Driving Manager
+			conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb", "SA", "");
+			System.out.println("Connected to database...");
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the department number to read : ");
+			int deptNumber = sc.nextInt();
+			sc.nextLine();
+			
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("select * from dept_master where dept_no="+deptNumber);
+			
+			while(rs.next()) {
+				System.out.println("---------------------");
+				System.out.println("DEPT NUMBER : "+ rs.getInt(1));
+				System.out.println("DEPT NAME : "+ rs.getString(2));
+				System.out.println("DEPT LOCATION : "+ rs.getString(3));
+				System.out.println("---------------------");
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

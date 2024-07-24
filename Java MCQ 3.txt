@@ -1,0 +1,91 @@
+JAVA MCQ 3 | 1/2/24
+-------------------
+
+Questions : 
+---------
+1. Find out all the methods for the JPA persistence from EntityManager.
+Ans. 	* persist, merge, remove, (manager.getTransaction())
+
+2. Find out the scenarios whenever the transaction manager is required in JPA.
+Ans.	* insert, update, delete
+
+3. Find out all the classes we have used in JPA.
+Ans.	* EntityManagerFactory
+	* EntityManager
+	* EntityTransaction
+	* Query
+
+4. Revise all the Annotations used in JPA Entity class.
+Ans.	* Entity -  defines that a class can be mapped to a table. It is just a marker.
+	* Table - allows you to specify the details of the table 
+		  that will be used to persist the entity in the database.
+	* Id - to set the primary key.
+	* Column - to specify the details of the column.
+	* Test - so that we can perform JUNIT testing.
+
+5. Find out the automatic primary key generation in JPA.
+Ans.	* ID
+
+6. Have an awareness on bean loading strategies in Spring.
+Ans.	* Lazy loading
+	* Eager loading
+
+7. Find out all the annotations in JPA that are complusory and optional.
+Ans.	* Complusory - Entity and ID
+
+8. @Autowired annotation ?
+Ans.	* Helps in injecting objects or creating objects.
+	* Setters methods are also a way of injecting objects or fields.
+	  so that certain fields can be injected, instead of injecting complete object fields
+	  in spring.
+
+9. What is the purpose of PagingAndSortingRepository ? 
+Ans. 	*  - Interface that extends CrudRepository and provides additional methods
+	   to retrieve entities using pagination and sorting.
+	   - Pagination is the process of dividing data into suitable chunks
+	   to save resources. 
+	   - Sorting is the process of ordering data based on certain criteria.
+
+10. What is the purpose of CrudRepository ? 
+Ans. 	* It is an interface that extends Repository interface and adds generic 
+	  CRUD (Create, Read, Update and Delete) methods.
+	* CrudRepository provides several methods out of the box for interacting with the 
+	  database such as save, findById, findAll, deleteById, deleteAll and count.
+
+11. What is the purpose of JpaRepository ? 
+Ans.	* JpaRepository allows you to perform CRUD (Create, Read, Update, and Delete)
+	  operations on entities, as well as pagination and sorting of the results.
+
+12. What is the purpose of getClass with bean class in Java ? 
+Ans.	* getClass is used to obtain the runtime class of the bean object.
+	  or it returns a class object.
+	* A bean class is used to simplify data access and manipulation.
+
+13. What is the purpose of getClass with bean id in Java ?
+Ans. 	* getClass with bean id is useful is when you want
+	  to check the type of the bean instance at runtime.
+
+14. What is the use of @Component ?
+Ans	@Component 
+		- To mark classes as Spring managed beans.
+
+	@Repository 
+		- simplifies database operations
+		- classes that provide data access or persistence functionality,
+		  such as Data Access Objects (DAOs).
+	@Service
+		- used for classes that provides business logic part
+		- it indicates that class is a service provider
+
+	@Controller
+		- This annotation is used for classes that handle	
+		  web requests or presentation layer functionality.
+
+	@RestController
+		- used for classes that handle RESTful web services
+		  or API layer functionality. 
+
+
+
+
+
